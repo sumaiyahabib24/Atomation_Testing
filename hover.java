@@ -1,0 +1,30 @@
+package pages;
+import java.awt.Desktop.Action;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByXPath;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+public class hover {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+				WebDriver driver = new  ChromeDriver();
+				driver.get("https://www.rokomari.com/book");
+			driver.manage().window().maximize();
+		  WebElement element  = driver.findElement(By.xpath("//*[@id=\"js--authors\"]"));
+			Actions action = new Actions(driver);
+			action.moveToElement(element).perform();
+	WebElement chosewriter=driver.findElement(By.xpath("//*[@id=\"js--authors-menu\"]/div/div[1]/li[1]/a"));
+	chosewriter.click();
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,1000)");
+	WebElement viewditails = driver.findElement(By.id("890"));
+	viewditails.click();
+	
+		
+			}
+	}
